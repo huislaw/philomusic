@@ -1,0 +1,1 @@
+## SEO & Performance Optimization Plan for `index.html` + supporting files
