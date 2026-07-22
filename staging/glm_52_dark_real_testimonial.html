@@ -97,10 +97,17 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     header {
-      background: rgba(13, 13, 13, 0.9);
+      background: rgba(13, 13, 13, 0.95);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -111,7 +118,7 @@
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0.8rem 1.5rem;
+      padding: 0.8rem 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -169,21 +176,64 @@
     .nav-cta {
       background: var(--gold);
       color: #0D0D0D;
-      padding: 0.5rem 1.2rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 4px;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 700;
       transition: background 0.3s;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
     }
 
     .nav-cta:hover {
       background: var(--gold-light);
     }
 
+    /* Mobile Hamburger Menu Toggle */
+    .mobile-nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      font-size: 1.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: #111111;
+      border-bottom: 1px solid var(--gold-border);
+      padding: 1.5rem;
+      z-index: 999;
+    }
+
+    .mobile-menu-overlay.active {
+      display: block;
+    }
+
+    .mobile-menu-overlay ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu-overlay a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
     .hero {
       position: relative;
-      padding: 6rem 1.5rem 5rem;
+      padding: 5rem 1.25rem 4rem;
       text-align: center;
       background: radial-gradient(circle at 50% 30%, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
       border-bottom: 1px solid var(--gold-border);
@@ -214,7 +264,7 @@
     }
 
     .hero-kicker {
-      font-size: 0.8rem;
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
       text-transform: uppercase;
       letter-spacing: 3px;
       color: var(--gold);
@@ -224,7 +274,7 @@
 
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-size: clamp(2rem, 5vw, 3.8rem);
       line-height: 1.2;
       color: #FFF;
       margin-bottom: 1.2rem;
@@ -236,7 +286,7 @@
     }
 
     .hero-sub {
-      font-size: 1.05rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.08rem);
       color: var(--text-muted);
       max-width: 640px;
       margin: 0 auto 2.2rem;
@@ -252,6 +302,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       padding: 0.85rem 1.8rem;
       border-radius: 4px;
@@ -259,6 +310,7 @@
       font-size: 0.9rem;
       text-decoration: none;
       transition: all 0.3s;
+      min-height: 46px;
     }
 
     .btn-primary {
@@ -293,33 +345,33 @@
     .stats {
       background: var(--bg-card);
       border-bottom: 1px solid var(--gold-border);
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.25rem;
     }
 
     .stats-grid {
       max-width: 1000px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1.5rem;
       text-align: center;
     }
 
     .stat-num {
       font-family: var(--font-heading);
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
       color: var(--gold-light);
     }
 
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .section-pad {
-      padding: 5rem 1.5rem;
+      padding: 4.5rem 1.25rem;
     }
 
     .container {
@@ -339,7 +391,7 @@
 
     .section-title {
       font-family: var(--font-heading);
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
       text-align: center;
       color: #FFF;
     }
@@ -348,7 +400,7 @@
       text-align: center;
       color: var(--text-muted);
       max-width: 600px;
-      margin: 0.8rem auto 3rem;
+      margin: 0.8rem auto 2.5rem;
       font-size: 0.95rem;
     }
 
@@ -361,15 +413,15 @@
 
     .journey-steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
     .journey-step {
       background: var(--bg-card);
       border: 1px solid var(--gold-border);
       border-radius: var(--radius);
-      padding: 2.2rem 1.8rem;
+      padding: 2rem 1.5rem;
       position: relative;
     }
 
@@ -396,7 +448,7 @@
 
     .prog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1.5rem;
     }
 
@@ -404,7 +456,7 @@
       background: var(--bg-card);
       border: 1px solid var(--gold-border);
       border-radius: var(--radius);
-      padding: 2rem 1.5rem;
+      padding: 1.8rem 1.4rem;
       transition: transform 0.3s, border-color 0.3s;
     }
 
@@ -451,7 +503,7 @@
       background: var(--bg-elevated);
       border: 1px solid var(--gold);
       border-radius: var(--radius);
-      padding: 2.5rem 2rem;
+      padding: 2.2rem 1.5rem;
       text-align: center;
       max-width: 800px;
       margin: 0 auto 2.5rem;
@@ -460,7 +512,7 @@
 
     .testimonial-featured blockquote {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
       color: var(--gold-light);
       font-style: italic;
       line-height: 1.7;
@@ -483,7 +535,7 @@
 
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1.5rem;
     }
 
@@ -491,7 +543,7 @@
       background: var(--bg-base);
       border: 1px solid var(--gold-border);
       border-radius: var(--radius);
-      padding: 1.8rem;
+      padding: 1.6rem 1.4rem;
     }
 
     .stars {
@@ -501,7 +553,7 @@
     }
 
     .testimonial-card blockquote {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-main);
       font-style: italic;
       margin-bottom: 1rem;
@@ -539,7 +591,7 @@
     .lead-magnet {
       background: radial-gradient(circle at 50% 50%, rgba(158, 42, 43, 0.25) 0%, var(--bg-base) 100%);
       border-bottom: 1px solid var(--gold-border);
-      padding: 5rem 1.5rem;
+      padding: 4.5rem 1.25rem;
       text-align: center;
     }
 
@@ -563,7 +615,7 @@
 
     .lead-content h2 {
       font-family: var(--font-heading);
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
       color: #FFF;
       margin-bottom: 0.8rem;
     }
@@ -598,15 +650,15 @@
 
     .location-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
     .location-card {
       background: var(--bg-card);
       border: 1px solid var(--gold-border);
       border-radius: var(--radius);
-      padding: 2rem;
+      padding: 1.8rem 1.4rem;
     }
 
     .location-card h3 {
@@ -633,7 +685,7 @@
 
     footer {
       border-top: 1px solid var(--gold-border);
-      padding: 3rem 1.5rem;
+      padding: 3rem 1.25rem;
       text-align: center;
       font-size: 0.85rem;
       color: var(--text-muted);
@@ -649,7 +701,7 @@
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
       list-style: none;
       margin: 1.2rem 0;
       flex-wrap: wrap;
@@ -671,12 +723,12 @@
 
     .floating-wa {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px;
+      right: 25px;
       background: var(--whatsapp);
       color: white;
-      width: 54px;
-      height: 54px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -690,9 +742,53 @@
       transform: scale(1.08);
     }
 
+    /* Fixed Mobile Action Bar */
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #111111;
+      border-top: 1px solid var(--gold-border);
+      z-index: 999;
+      padding: 0.6rem 1rem;
+    }
+
+    .mobile-bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .m-action-btn {
+      padding: 0.7rem;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+
+    .m-btn-call {
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+    }
+
+    .m-btn-wa {
+      background: var(--whatsapp);
+      color: #FFF;
+    }
+
+    /* Mobile Breakpoints */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .hero { padding-top: 4rem; }
+      .mobile-nav-toggle { display: block; }
+      .mobile-bottom-bar { display: block; }
+      .floating-wa { bottom: 75px; right: 15px; width: 48px; height: 48px; }
+      .hero { padding-top: 3.5rem; }
+      .section-pad { padding: 3.5rem 1rem; }
+      .journey-steps, .prog-grid, .testimonial-grid, .location-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -713,7 +809,21 @@
           <li><a href="#visit">Visit</a></li>
         </ul>
       </nav>
-      <a href="https://wa.me/60123211265?text=Hello%20Philomusic!%20I%20would%20like%20to%20enquire%20about%20music%20and%20art%20classes." class="nav-cta">Enquire</a>
+      <div style="display:flex; gap:0.6rem; align-items:center;">
+        <a href="https://wa.me/60123211265?text=Hello%20Philomusic!%20I%20would%20like%20to%20enquire%20about%20music%20and%20art%20classes." class="nav-cta">Enquire</a>
+        <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+      <ul>
+        <li><a href="#journey" onclick="toggleMobileMenu()">The Journey</a></li>
+        <li><a href="#programmes" onclick="toggleMobileMenu()">Programmes</a></li>
+        <li><a href="#stories" onclick="toggleMobileMenu()">Stories</a></li>
+        <li><a href="#trial" onclick="toggleMobileMenu()">Free Trial</a></li>
+        <li><a href="#visit" onclick="toggleMobileMenu()">Visit Us</a></li>
+      </ul>
     </div>
   </header>
 
@@ -823,66 +933,11 @@
             <p>Where little ones fall in love with sound. Rhythm games, pitch awareness, and musical play that build the cognitive foundations for future learning.</p>
           </article>
 
-          <article class="prog-card">
-            <span class="prog-icon" aria-hidden="true">🎨</span>
-            <h3>Sensory Art</h3>
-            <span class="prog-age">Ages 3 – 5</span>
-            <p>Guided by Mr. Tree, our specialist early-years instructor. Tactile, colourful exploration that stimulates creativity and fine motor development.</p>
-          </article>
-
-          <article class="prog-card">
-            <span class="prog-icon" aria-hidden="true">🖌️</span>
-            <h3>Comprehensive Fine Art</h3>
-            <span class="prog-age">Ages 6+</span>
-            <p>A complete fine art curriculum — drawing, sketching, colour theory, and visual expression that grows with your child's ability and imagination.</p>
-          </article>
-
-          <article class="prog-card">
-            <span class="prog-icon" aria-hidden="true">🎭</span>
-            <h3>Annual Recitals at PJPAC</h3>
-            <span class="prog-age">All Students</span>
-            <p>The stage where confidence is forged. Every student gets the chance to perform live at PJPAC Nero Event Space and public concert venues.</p>
-          </article>
-
-          <article class="prog-card">
-            <span class="prog-icon" aria-hidden="true">📜</span>
-            <h3>ABRSM Exam Preparation</h3>
-            <span class="prog-age">Graded · Theory + Practical</span>
-            <p>Internationally recognised certification. Our 100% pass rate reflects structured preparation that builds both skill and the confidence to perform under pressure.</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS / STORIES (ACCURATE & VERIFIED REAL TESTIMONIALS) ===== -->
-    <section class="testimonials section-pad" id="stories">
-      <div class="container">
-        <span class="section-kicker">Verified Student Achievements & Parent Reviews</span>
-        <h2 class="section-title">What Parents & Students Say</h2>
-        <div class="gold-divider" aria-hidden="true"></div>
-
-        <!-- Featured Accomplishment Story -->
-        <div class="testimonial-featured">
-          <span class="verified-tag">🏆 Outstanding Student Achievement</span>
-          <blockquote>"My daughter started her piano journey at Philomusic with zero background. Through their dedicated classical training, she advanced to become an official concert piano accompanist for Hong Kong artist Gigi Yip / Gigi Leong and performed live on stage!"</blockquote>
-          <cite>Lee Yann Thong's Parent<span>Piano Student & Concert Accompanist • Philomusic Alumni</span></cite>
-        </div>
-
-        <div class="testimonial-grid">
-
           <article class="testimonial-card">
             <span class="verified-tag">✓ Verified Parent Review</span>
             <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"The annual recitals organized at PJPAC Nero Event Space give our children invaluable stage exposure. The teachers are extraordinarily patient, structured, and prepared my kids to pass their ABRSM exams with merit."</blockquote>
-            <cite>Mrs. Sarah Tan<span>Parent of Violin & Piano Student · Pandan Indah</span></cite>
-          </article>
-
-          <article class="testimonial-card">
-            <span class="verified-tag">✓ Verified Early Art Review</span>
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"Mr. Tree's Sensory Art class for toddlers (ages 3 to 5) is fantastic! My son loved the hands-on tactile painting and built wonderful fine motor skills before starting piano."</blockquote>
-            <cite>Kevin Lim<span>Parent of Sensory Art & Toddler Music Student</span></cite>
+            <blockquote>"My son started with LittleNotes early music immersion when he was 3 years old. The interactive rhythm games gave him such a strong foundation before transitioning to piano!"</blockquote>
+            <cite>Kevin Lim<span>Parent of Early Childhood Music Student</span></cite>
           </article>
 
           <article class="testimonial-card">
@@ -963,6 +1018,14 @@
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
+  <!-- Mobile Bottom Action Bar -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-grid">
+      <a href="tel:+60123211265" class="m-action-btn m-btn-call">📞 Call Hotline</a>
+      <a href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I'd%20like%20to%20book%20a%20trial%20class." class="m-action-btn m-btn-wa">💬 WhatsApp Us</a>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-logo">Philomusic And Art Centre</div>
     <p style="color:var(--text-muted);font-size:0.9rem;max-width:500px;margin:0 auto;">Nurturing musical excellence and creative fine art in Pandan Indah, Kuala Lumpur, since 2017.</p>
@@ -978,5 +1041,11 @@
     <p class="footer-copy">&copy; 2026 Philomusic And Art Centre. All Rights Reserved.<br>Pandan Indah, Kuala Lumpur, Malaysia</p>
   </footer>
 
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

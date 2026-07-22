@@ -62,44 +62,34 @@
       },
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
+        "dayOfWeek": ["Saturday"],
         "opens": "08:00",
         "closes": "19:30"
       },
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
+        "dayOfWeek": ["Sunday"],
         "opens": "08:00",
         "closes": "16:30"
       }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Music & Art Classes",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Classical Piano Lessons"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Violin & Cello Lessons"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Guitar & Ukulele Lessons"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Early Childhood Music (Ages 2.5 - 5)"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sensory & Comprehensive Art Programmes"}}
-      ]
-    }
+    ]
   }
   </script>
 
   <style>
-    /* CSS Variables — Philomusic Brand Palette */
     :root {
       --brand-red: #9E2A2B;
-      --brand-red-hover: #802122;
+      --brand-red-hover: #7E1E20;
+      --brand-black: #1A1A1A;
       --brand-white: #FFFFFF;
-      --bg-light: #F9F6F6;
+      --bg-cream: #FFFDF9;
       --bg-card: #FFFFFF;
-      --text-main: #1F1F1F;
-      --text-muted: #5A5A5A;
+      --text-main: #2D2D2D;
+      --text-muted: #666666;
       --text-on-red: #FFFFFF;
-      --border-color: rgba(158, 42, 43, 0.18);
+      --border-color: #EAE5DD;
       --whatsapp-green: #25D366;
+      
       --font-serif-header: 'Cinzel', serif;
       --font-sans: 'Montserrat', sans-serif;
     }
@@ -115,41 +105,71 @@
     }
 
     body {
-      background-color: var(--bg-light);
+      background-color: var(--bg-cream);
       color: var(--text-main);
       font-family: var(--font-sans);
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     header {
-      background-color: var(--brand-red);
+      background-color: var(--brand-black);
+      border-bottom: 3px solid var(--brand-red);
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(8px);
-      border-bottom: 3px solid var(--brand-red-hover);
     }
 
-    .nav-container {
+    .header-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo {
-      text-decoration: none;
+    .logo-container {
       display: flex;
       align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
     }
 
-    .logo img {
-      height: 48px;
+    .logo-container img {
+      height: 44px;
       width: auto;
-      display: block;
+      border-radius: 4px;
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif-header);
+      font-size: 1.1rem;
+      color: var(--brand-white);
+      letter-spacing: 1px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .brand-subtitle {
+      font-size: 0.68rem;
+      color: var(--brand-red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     .nav-links {
@@ -171,10 +191,49 @@
       color: var(--brand-white);
     }
 
+    .mobile-nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #FFF;
+      font-size: 1.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: #1A1A1A;
+      border-bottom: 2px solid var(--brand-red);
+      padding: 1.5rem;
+      z-index: 999;
+    }
+
+    .mobile-menu-overlay.active {
+      display: block;
+    }
+
+    .mobile-menu-overlay ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu-overlay a {
+      color: #FFF;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
     .hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 4.5rem 2rem 3.5rem;
+      padding: 4rem 1.25rem 3rem;
       text-align: center;
     }
 
@@ -182,7 +241,7 @@
       font-family: var(--font-sans);
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 0.85rem;
+      font-size: clamp(0.75rem, 2vw, 0.85rem);
       color: var(--brand-red);
       margin-bottom: 1rem;
       font-weight: 600;
@@ -190,7 +249,7 @@
 
     .hero h1 {
       font-family: var(--font-serif-header);
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(2rem, 5vw, 3.6rem);
       line-height: 1.25;
       color: var(--text-main);
       margin-bottom: 1.2rem;
@@ -200,13 +259,14 @@
     .hero p {
       max-width: 680px;
       margin: 0 auto 2.2rem;
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
       color: var(--text-muted);
     }
 
     .cta-button {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.6rem;
       background-color: var(--brand-red);
       color: var(--text-on-red);
@@ -217,6 +277,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(158, 42, 43, 0.3);
+      min-height: 46px;
     }
 
     .cta-button:hover {
@@ -236,7 +297,7 @@
     .section-title {
       text-align: center;
       font-family: var(--font-serif-header);
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
       margin-bottom: 2.5rem;
       position: relative;
     }
@@ -253,20 +314,20 @@
     .services-container {
       max-width: 1100px;
       margin: 3rem auto;
-      padding: 0 2rem;
+      padding: 0 1.25rem;
     }
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 6px;
-      padding: 2.2rem 1.5rem;
+      padding: 2rem 1.4rem;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -290,31 +351,33 @@
     }
 
     .card p {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
     }
 
     .lead-magnet-section {
       background-color: var(--brand-red);
-      border-top: none;
-      border-bottom: none;
-      padding: 4rem 2rem;
+      padding: 4rem 1.25rem;
       margin: 4rem 0;
       color: var(--brand-white);
-    }
-
-    .lead-magnet-content h2 {
-      color: var(--brand-white);
-    }
-
-    .lead-magnet-content p {
-      color: rgba(255, 255, 255, 0.9);
     }
 
     .lead-magnet-content {
       max-width: 780px;
       margin: 0 auto;
       text-align: center;
+    }
+
+    .lead-magnet-content h2 {
+      font-family: var(--font-serif-header);
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      color: var(--brand-white);
+      margin-bottom: 0.8rem;
+    }
+
+    .lead-magnet-content p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.8rem;
     }
 
     .badge {
@@ -334,61 +397,59 @@
     .info-section {
       max-width: 1100px;
       margin: 4rem auto;
-      padding: 0 2rem;
+      padding: 0 1.25rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
 
     .info-box {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      padding: 2rem;
+      padding: 1.8rem 1.4rem;
       border-radius: 6px;
     }
 
     .info-box h3 {
       font-family: var(--font-serif-header);
-      margin-bottom: 1rem;
+      font-size: 1.15rem;
       color: var(--brand-red);
+      margin-bottom: 1rem;
     }
 
     .info-box ul {
       list-style: none;
-      font-family: var(--font-sans);
       font-size: 0.9rem;
       color: var(--text-muted);
     }
 
     .info-box li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
+      background-color: var(--brand-black);
+      color: rgba(255, 255, 255, 0.7);
       text-align: center;
-      font-family: var(--font-sans);
+      padding: 2.5rem 1.25rem;
       font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(0,0,0,0.08);
+      border-top: 1px solid var(--brand-red);
     }
 
     .floating-whatsapp {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px;
+      right: 25px;
       background-color: var(--whatsapp-green);
       color: white;
-      width: 58px;
-      height: 58px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
-      justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 10000;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
       transition: transform 0.3s;
     }
 
@@ -396,57 +457,126 @@
       transform: scale(1.08);
     }
 
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #1A1A1A;
+      border-top: 1px solid var(--brand-red);
+      z-index: 999;
+      padding: 0.6rem 1rem;
+    }
+
+    .mobile-bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .m-action-btn {
+      padding: 0.7rem;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+
+    .m-btn-call {
+      border: 1px solid var(--brand-red);
+      color: #FFF;
+    }
+
+    .m-btn-wa {
+      background: var(--whatsapp-green);
+      color: #FFF;
+    }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .hero { padding-top: 2.5rem; }
+      .mobile-nav-toggle { display: block; }
+      .mobile-bottom-bar { display: block; }
+      .floating-whatsapp { bottom: 75px; right: 15px; width: 48px; height: 48px; }
+      .grid-3, .info-section { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="nav-container">
-      <a href="#" class="logo"><img src="img/philomusic_logo.jpg" alt="Philomusic And Art Centre" width="200" height="200" fetchpriority="high"></a>
-      <nav aria-label="Main navigation">
+    <div class="header-container">
+      <a href="#" class="logo-container">
+        <img src="img/philomusic_logo.jpg" alt="Philomusic And Art Centre Logo" width="200" height="200" fetchpriority="high">
+        <div class="logo-text-group">
+          <span class="brand-name">PHILOMUSIC</span>
+          <span class="brand-subtitle">And Art Centre</span>
+        </div>
+      </a>
+      
+      <nav aria-label="Main Navigation">
         <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#programmes">Programmes</a></li>
-        <li><a href="#hours">Location & Hours</a></li>
+          <li><a href="#programmes">Programmes</a></li>
+          <li><a href="#about">About Centre</a></li>
+          <li><a href="#hours">Hours & Location</a></li>
+          <li><a href="https://wa.me/60123211265">WhatsApp Us</a></li>
         </ul>
       </nav>
-      <a href="https://wa.me/60123211265?text=Hello%20Philomusic!%20I%20would%20like%20to%20enquire%20about%20music%20and%20art%20classes." class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.85rem; background-color: var(--brand-white); color: var(--brand-red);">Enquire Now</a>
+
+      <button class="mobile-nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">☰</button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+      <ul>
+        <li><a href="#programmes" onclick="toggleMobileMenu()">Programmes</a></li>
+        <li><a href="#about" onclick="toggleMobileMenu()">About Centre</a></li>
+        <li><a href="#hours" onclick="toggleMobileMenu()">Hours & Location</a></li>
+        <li><a href="https://wa.me/60123211265" onclick="toggleMobileMenu()">WhatsApp Us</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
-
-  <section class="hero" id="about">
-    <div class="hero-subtitle">Pandan Indah • Kuala Lumpur</div>
+  <section class="hero">
+    <span class="hero-subtitle">Est. 2017 in Pandan Indah, Kuala Lumpur</span>
     <h1>Nurturing Musical Excellence & Creative Fine Art</h1>
-    <p>Established in 2017, Philomusic And Art Centre provides structured classical music instruction in Piano, Violin, Cello, Guitar, Ukulele, along with early childhood music and comprehensive art courses.</p>
-    <a href="https://wa.me/60123211265?text=Hi!%20I'd%20like%20to%20book%20a%20Free%20Aptitude%20Assessment%20%26%20Trial%20Class%20for%20my%20child." class="cta-button cta-whatsapp">
-      <span>Book a Free Trial Session via WhatsApp</span>
-    </a>
+    <p>Where passion meets structured guidance. Certified music & art education for children and beginners in Pandan Indah.</p>
+    
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://wa.me/60123211265?text=Hello%20Philomusic!%20I%20would%20like%20to%20enquire%20about%20music%20and%20art%20classes." class="cta-button cta-whatsapp">
+        💬 WhatsApp Enquiry
+      </a>
+      <a href="#programmes" class="cta-button" style="background-color:transparent; border:1px solid var(--brand-red); color:var(--brand-red);">
+        Explore Programmes
+      </a>
+    </div>
   </section>
 
   <section class="services-container" id="programmes">
-    <h2 class="section-title">Our Music & Art Programmes</h2>
+    <h2 class="section-title">Our Music & Fine Art Programmes</h2>
+    
     <div class="grid-3">
-      
+
       <article class="card">
         <span class="card-icon" aria-hidden="true">🎹</span>
-        <h3>Classical Piano, Violin & Cello</h3>
-        <p>Comprehensive instrumental instruction focusing on classical technique, expression, sight-reading, and exam preparations for all levels.</p>
+        <h3>Classical Piano Lessons</h3>
+        <p>Comprehensive piano instruction from early fundamentals to graded exam preparation (ABRSM / Trinity). Suitable for ages 5 to adults.</p>
+      </article>
+
+      <article class="card">
+        <span class="card-icon" aria-hidden="true">🎻</span>
+        <h3>Violin & Cello Tuition</h3>
+        <p>Structured string technique, posture development, and tone production taught by experienced string instructors in private sessions.</p>
       </article>
 
       <article class="card">
         <span class="card-icon" aria-hidden="true">🎸</span>
         <h3>Guitar & Ukulele</h3>
-        <p>Acoustic and classical guitar and ukulele classes designed for young learners and teens seeking fundamental fingerstyle mastery.</p>
+        <p>Acoustic and classical guitar courses tailored for young learners building finger dexterity, chord mastery, and musical enjoyment.</p>
       </article>
 
       <article class="card">
-        <span class="card-icon" aria-hidden="true">🎼</span>
+        <span class="card-icon" aria-hidden="true">🎵</span>
         <h3>Early Childhood Music</h3>
         <p>Specifically designed musical immersion classes for young toddlers (Ages 2.5 to 5 years) to build rhythm, auditory memory, and pitch awareness.</p>
       </article>
@@ -512,10 +642,24 @@
     <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
+  <!-- Fixed Mobile Action Strip -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-grid">
+      <a href="tel:+60123211265" class="m-action-btn m-btn-call">📞 Call Hotline</a>
+      <a href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I'd%20like%20to%20book%20a%20trial%20class." class="m-action-btn m-btn-wa">💬 WhatsApp Us</a>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; 2026 Philomusic And Art Centre. All Rights Reserved.</p>
     <p style="margin-top:0.3rem;">Pandan Indah, Kuala Lumpur | <a href="tel:+60123211265" style="color:var(--brand-red);text-decoration:none;">+60 12-321 1265</a></p>
   </footer>
 
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
