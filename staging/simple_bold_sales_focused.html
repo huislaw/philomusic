@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philomusic | Fast Enquiry for Music & Art Trial</title>
+    <meta
+      name="description"
+      content="Book a free trial now and let your child grow through music and art."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f0f0f;
+        --panel: #161616;
+        --red: #ff5a5f;
+        --gold: #f0c36d;
+        --text: #f7f2e8;
+        --muted: #bdb3a3;
+        --wa: #25d366;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Inter, sans-serif;
+        background: linear-gradient(135deg, #0f0f0f, #1b1b1b);
+        color: var(--text);
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .card {
+        width: min(1000px, 100%);
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 24px;
+        padding: 28px;
+        border-radius: 24px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.09);
+      }
+      .left {
+        min-width: 0;
+      }
+      .left h1 {
+        font-size: clamp(1.9rem, 3.3vw, 2.7rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 14px;
+      }
+      .left h1 .accent {
+        color: var(--gold);
+      }
+      .lead {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .benefits {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .benefits div {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.9rem;
+      }
+      .benefits div::before {
+        content: "→";
+        color: var(--red);
+        font-weight: 800;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        padding: 13px 16px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.93rem;
+        min-height: 46px;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: #fff;
+      }
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+      }
+      .box {
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(240, 195, 109, 0.16),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid rgba(240, 195, 109, 0.22);
+      }
+      .headline {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--gold);
+      }
+      .quote {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--text);
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .name {
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .role {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .wa {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(37, 211, 102, 0.16);
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: #dff8e7;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+      @media (max-width: 1024px) {
+        .card {
+          gap: 20px;
+          padding: 24px;
+        }
+      }
+      @media (max-width: 800px) {
+        .card {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+        .actions {
+          flex-direction: column;
+        }
+        .btn {
+          width: 100%;
+        }
+      }
+      @media (max-width: 560px) {
+        body {
+          padding: 12px;
+          align-items: start;
+        }
+        .card {
+          padding: 16px;
+          border-radius: 18px;
+          gap: 16px;
+        }
+        .left h1 {
+          font-size: 1.7rem;
+        }
+        .lead,
+        .benefits div {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="left">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+          "
+        >
+          <img
+            src="img/philomusic_logo.jpg"
+            alt="Philomusic And Art Centre Logo"
+            style="width: 42px; height: 42px; border-radius: 50%"
+          />
+          <div style="font-weight: 700; color: var(--text)">
+            Philomusic And Art Centre
+          </div>
+        </div>
+        <h1>Book your child’s <span class="accent">free trial</span> now.</h1>
+        <p class="lead">
+          Parents are choosing Philomusic for structure, confidence and real
+          progress in music and art. Start with a free assessment today.
+        </p>
+        <div class="benefits">
+          <div>1-on-1 support with experienced teachers</div>
+          <div>100% ABRSM exam pass rate</div>
+          <div>Fast WhatsApp enquiry and personalised guidance</div>
+        </div>
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I%20want%20to%20book%20a%20free%20trial%20assessment."
+            >💬 Enquire Now</a
+          >
+          <a class="btn btn-secondary" href="tel:+60123211265">📞 Call Now</a>
+        </div>
+      </div>
+      <div class="right">
+        <div class="box">
+          <div class="headline">Why parents choose us</div>
+          <div class="quote">
+            “The free assessment made everything clear, and the lessons
+            immediately built confidence in my child.”
+          </div>
+          <div class="name">Alicia K.</div>
+          <div class="role">Parent, violin student</div>
+          <div class="wa">⚡ Quick response on WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

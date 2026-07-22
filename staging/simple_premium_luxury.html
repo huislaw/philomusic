@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philomusic | Luxury Music & Art Studio</title>
+    <meta
+      name="description"
+      content="Premium music and art lessons for children in Pandan Indah, KL. Free trial assessment now."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b0b0b;
+        --panel: #121212;
+        --gold: #c9a96e;
+        --gold2: #e7c98a;
+        --text: #f7f2e9;
+        --muted: #b1a892;
+        --wa: #25d366;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Montserrat, sans-serif;
+        background: linear-gradient(135deg, #070707, #141414);
+        color: var(--text);
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .card {
+        width: min(1100px, 100%);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 26px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid rgba(201, 169, 110, 0.25);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .brand img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .brand span {
+        font-family: Cinzel, serif;
+        color: var(--gold2);
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+      }
+      .eyebrow {
+        display: inline-block;
+        width: fit-content;
+        padding: 7px 12px;
+        border: 1px solid rgba(201, 169, 110, 0.25);
+        border-radius: 999px;
+        color: var(--gold2);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        margin-bottom: 14px;
+        background: rgba(201, 169, 110, 0.08);
+      }
+      h1 {
+        font-family: Cinzel, serif;
+        font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      h1 .accent {
+        color: var(--gold2);
+      }
+      .lead {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--muted);
+        margin-bottom: 16px;
+        max-width: 560px;
+      }
+      .bullets {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .bullets div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+      }
+      .bullets div::before {
+        content: "✦";
+        color: var(--gold2);
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .stats span {
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        font-size: 0.8rem;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        min-height: 46px;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold2));
+        color: #111;
+      }
+      .btn-secondary {
+        border: 1px solid rgba(201, 169, 110, 0.28);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+      }
+      .panel {
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+        background: linear-gradient(
+          145deg,
+          rgba(201, 169, 110, 0.12),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid rgba(201, 169, 110, 0.22);
+      }
+      .panel .quote {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text);
+        font-style: italic;
+        margin-bottom: 12px;
+      }
+      .panel .name {
+        font-weight: 700;
+        color: var(--gold2);
+      }
+      .panel .role {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 14px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: rgba(37, 211, 102, 0.16);
+        color: #dff8e7;
+        font-size: 0.85rem;
+        font-weight: 600;
+        width: fit-content;
+        border: 1px solid rgba(37, 211, 102, 0.18);
+      }
+      @media (max-width: 1024px) {
+        .card {
+          gap: 20px;
+          padding: 24px;
+        }
+      }
+      @media (max-width: 800px) {
+        .card {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+        .right {
+          margin-top: 4px;
+        }
+        .actions {
+          flex-direction: column;
+        }
+        .btn {
+          width: 100%;
+        }
+      }
+      @media (max-width: 560px) {
+        body {
+          padding: 12px;
+          align-items: start;
+        }
+        .card {
+          padding: 16px;
+          border-radius: 18px;
+          gap: 16px;
+        }
+        h1 {
+          font-size: 1.65rem;
+        }
+        .lead,
+        .bullets div {
+          font-size: 0.9rem;
+        }
+        .brand span {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="left">
+        <div class="brand">
+          <img
+            src="img/philomusic_logo.jpg"
+            alt="Philomusic And Art Centre Logo"
+          /><span>Philomusic And Art Centre</span>
+        </div>
+        <div class="eyebrow">Trusted by families since 2017</div>
+        <h1>
+          Give your child a <span class="accent">beautiful start</span> in music
+          and art.
+        </h1>
+        <p class="lead">
+          A refined, encouraging studio in Pandan Indah for piano, violin,
+          cello, guitar and art lessons with a free trial assessment.
+        </p>
+        <div class="bullets">
+          <div>Personalised instruction for each child</div>
+          <div>100% ABRSM exam pass rate</div>
+          <div>Free 20-minute trial assessment</div>
+        </div>
+        <div class="stats">
+          <span>500+ students nurtured</span><span>4.7★ parent rating</span
+          ><span>Pandan Indah, KL</span>
+        </div>
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I%20would%20like%20to%20book%20a%20free%20trial%20assessment."
+            >✦ Book Free Trial</a
+          >
+          <a class="btn btn-secondary" href="tel:+60123211265">📞 Call Us</a>
+        </div>
+      </div>
+      <div class="right">
+        <div class="panel">
+          <div class="quote">
+            “My daughter became more confident and expressive after just a few
+            lessons. The approach feels personal and thoughtful.”
+          </div>
+          <div class="name">Sarah L.</div>
+          <div class="role">Parent of a young pianist</div>
+          <div class="wa">⚡ WhatsApp reply within minutes</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

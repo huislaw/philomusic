@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philomusic | Playful Music & Art for Kids</title>
+    <meta
+      name="description"
+      content="Bright, joyful music and art lessons for children in Pandan Indah, KL."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fff7ec;
+        --pink: #ff7aa2;
+        --blue: #5bc0eb;
+        --yellow: #ffd166;
+        --green: #6dd3a8;
+        --text: #2d2338;
+        --muted: #6f6078;
+        --wa: #25d366;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Nunito, sans-serif;
+        background: linear-gradient(135deg, #fff7ec 0%, #ffe8d2 100%);
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .wrap {
+        width: min(1100px, 100%);
+        position: relative;
+      }
+      .blob1,
+      .blob2 {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(20px);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+      .blob1 {
+        width: 220px;
+        height: 220px;
+        background: rgba(255, 122, 162, 0.25);
+        top: -30px;
+        right: -40px;
+      }
+      .blob2 {
+        width: 180px;
+        height: 180px;
+        background: rgba(91, 192, 235, 0.25);
+        bottom: -40px;
+        left: -40px;
+      }
+      .card {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 20px;
+        padding: 28px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(10px);
+      }
+      h1 {
+        font-family: Fredoka, sans-serif;
+        font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+        color: var(--text);
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+      h1 .accent {
+        color: var(--pink);
+      }
+      .lead {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+      .chip {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--text);
+        font-weight: 700;
+        font-size: 0.8rem;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+      }
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        min-height: 46px;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--pink), #ff9eb0);
+        color: #fff;
+      }
+      .btn-secondary {
+        background: #fff;
+        color: var(--text);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .side {
+        padding: 18px;
+        border-radius: 22px;
+        background: linear-gradient(
+          135deg,
+          rgba(91, 192, 235, 0.14),
+          rgba(255, 209, 102, 0.16)
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+        min-width: 0;
+      }
+      .smile {
+        font-size: 2rem;
+      }
+      .quote {
+        font-style: italic;
+        line-height: 1.7;
+        color: var(--text);
+      }
+      .name {
+        font-weight: 800;
+        color: var(--pink);
+      }
+      .role {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .wa {
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: #167b3f;
+      }
+      @media (max-width: 1024px) {
+        .card {
+          padding: 24px;
+          gap: 18px;
+        }
+      }
+      @media (max-width: 780px) {
+        .card {
+          grid-template-columns: 1fr;
+        }
+        .wrap {
+          width: 100%;
+        }
+        .btns {
+          flex-direction: column;
+        }
+        .btn {
+          width: 100%;
+        }
+      }
+      @media (max-width: 560px) {
+        body {
+          padding: 12px;
+          align-items: start;
+        }
+        .card {
+          padding: 16px;
+          border-radius: 20px;
+          gap: 16px;
+        }
+        h1 {
+          font-size: 1.7rem;
+        }
+        .lead {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="blob1"></div>
+      <div class="blob2"></div>
+      <div class="card">
+        <div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 14px;
+            "
+          >
+            <img
+              src="img/philomusic_logo.jpg"
+              alt="Philomusic And Art Centre Logo"
+              style="width: 44px; height: 44px; border-radius: 50%"
+            />
+            <div
+              style="
+                font-family: &quot;Fredoka&quot;, sans-serif;
+                font-weight: 700;
+                color: var(--text);
+              "
+            >
+              Philomusic
+            </div>
+          </div>
+          <h1>
+            Music and art that make kids <span class="accent">smile</span> big.
+          </h1>
+          <p class="lead">
+            A warm and joyful space in Pandan Indah where children explore
+            piano, violin, cello, guitar and art with confidence and fun.
+          </p>
+          <div class="chips">
+            <div class="chip">🎵 Piano & Strings</div>
+            <div class="chip">🎨 Fun Art Class</div>
+            <div class="chip">✨ Free Trial</div>
+          </div>
+          <div class="btns">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I%20would%20like%20to%20book%20a%20free%20trial%20for%20my%20child."
+              >💬 Book Free Trial</a
+            >
+            <a class="btn btn-secondary" href="tel:+60123211265">📞 Call Us</a>
+          </div>
+        </div>
+        <div class="side">
+          <div class="smile">🌟</div>
+          <div class="quote">
+            “My son loves coming for lessons now — he looks forward to each
+            class and feels proud of his progress.”
+          </div>
+          <div class="name">Mina T.</div>
+          <div class="role">Parent of a 7-year-old student</div>
+          <div class="wa">⚡ Quick WhatsApp replies</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

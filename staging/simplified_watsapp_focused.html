@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Philomusic And Art Centre | Music & Art Classes in Pandan Indah, KL
+    </title>
+    <meta
+      name="description"
+      content="Classical music & art lessons for children in Pandan Indah, KL. 100% ABRSM pass rate. Piano, violin, guitar, cello & art classes. Free trial assessment."
+    />
+    <meta name="theme-color" content="#0D0D0D" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♪</text></svg>"
+    />
+
+    <style>
+      :root {
+        --bg-base: #080808;
+        --bg-card: rgba(255, 255, 255, 0.05);
+        --gold: #c9a96e;
+        --gold-light: #e8c98a;
+        --gold-border: rgba(201, 169, 110, 0.28);
+        --text-main: #f4efe8;
+        --text-muted: #b7b0a3;
+        --whatsapp: #25d366;
+        --font-heading: "Cinzel", serif;
+        --font-body: "Montserrat", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(201, 169, 110, 0.16),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(201, 169, 110, 0.12),
+            transparent 24%
+          ),
+          linear-gradient(135deg, #060606 0%, #111111 100%);
+        color: var(--text-main);
+        min-height: 100svh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      body::before {
+        width: 280px;
+        height: 280px;
+        background: rgba(201, 169, 110, 0.18);
+        top: -60px;
+        right: -40px;
+      }
+
+      body::after {
+        width: 220px;
+        height: 220px;
+        background: rgba(37, 211, 102, 0.15);
+        bottom: -20px;
+        left: -50px;
+      }
+
+      .page {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(8px);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        text-decoration: none;
+        color: var(--text-main);
+      }
+
+      .logo img {
+        height: 38px;
+        width: auto;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .logo-text {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--gold-light);
+        letter-spacing: 0.04em;
+      }
+
+      .logo-text small {
+        display: block;
+        font-size: 0.58rem;
+        color: var(--text-muted);
+        font-family: var(--font-body);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-top: 0.15rem;
+      }
+
+      .chip-btn {
+        text-decoration: none;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+        background: linear-gradient(135deg, var(--whatsapp), #22c96b);
+        color: white;
+      }
+
+      .chip-btn:hover {
+        transform: translateY(-1px);
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.3rem 1.15rem 1.1rem;
+      }
+
+      .hero-card {
+        width: min(1100px, 100%);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.2rem;
+        padding: 1.25rem;
+        border-radius: 24px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid var(--gold-border);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(14px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          transparent 0%,
+          rgba(201, 169, 110, 0.06) 50%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+
+      .hero-copy {
+        padding: 0.4rem 0.2rem 0.2rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.35rem 0.7rem;
+        border: 1px solid rgba(201, 169, 110, 0.28);
+        border-radius: 999px;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        background: rgba(201, 169, 110, 0.08);
+        margin-bottom: 0.9rem;
+      }
+
+      h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+        line-height: 1.17;
+        margin-bottom: 0.75rem;
+        color: #fff;
+        letter-spacing: 0.01em;
+      }
+
+      h1 .accent {
+        color: var(--gold-light);
+      }
+
+      .lead {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        max-width: 560px;
+      }
+
+      .feature-list {
+        display: grid;
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+        list-style: none;
+      }
+
+      .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-size: 0.9rem;
+        color: var(--text-main);
+      }
+
+      .feature-list li::before {
+        content: "✦";
+        color: var(--gold-light);
+        font-size: 0.9rem;
+      }
+
+      .stats-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 0.95rem;
+      }
+
+      .stat-pill {
+        padding: 0.65rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        font-size: 0.8rem;
+        color: var(--text-main);
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        text-decoration: none;
+        padding: 0.8rem 1.1rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        color: #111;
+        box-shadow: 0 10px 24px rgba(201, 169, 110, 0.18);
+      }
+
+      .btn-secondary {
+        color: var(--text-main);
+        border: 1px solid rgba(201, 169, 110, 0.26);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        transform: translateY(-1px);
+      }
+
+      .social-proof {
+        background: linear-gradient(
+          145deg,
+          rgba(201, 169, 110, 0.12),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid var(--gold-border);
+        border-radius: 20px;
+        padding: 1rem;
+        position: relative;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .quote-mark {
+        font-size: 2rem;
+        color: var(--gold-light);
+        line-height: 1;
+        font-family: var(--font-heading);
+      }
+
+      .quote {
+        font-size: 0.95rem;
+        color: var(--text-main);
+        line-height: 1.7;
+        font-style: italic;
+      }
+
+      .person {
+        font-size: 0.8rem;
+        color: var(--gold-light);
+        font-weight: 700;
+      }
+
+      .person span {
+        display: block;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-top: 0.2rem;
+        font-weight: 400;
+      }
+
+      .mini-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.7rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(37, 211, 102, 0.16);
+        color: #dff8e7;
+        font-size: 0.82rem;
+        font-weight: 600;
+        width: fit-content;
+        border: 1px solid rgba(37, 211, 102, 0.2);
+      }
+
+      footer {
+        text-align: center;
+        padding: 0.8rem 1rem 1rem;
+        color: var(--text-muted);
+        font-size: 0.76rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      @media (max-width: 1024px) {
+        .hero-card {
+          gap: 1rem;
+          padding: 1.1rem;
+        }
+        main {
+          padding: 1.1rem;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .hero-card {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+        main {
+          padding: 1rem;
+        }
+        .social-proof {
+          min-height: auto;
+        }
+        .cta-row {
+          flex-direction: column;
+        }
+        .btn-primary,
+        .btn-secondary {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 560px) {
+        header {
+          padding: 0.9rem 1rem;
+        }
+        .chip-btn {
+          padding: 0.65rem 0.9rem;
+        }
+        h1 {
+          font-size: 1.65rem;
+        }
+        .lead {
+          font-size: 0.9rem;
+        }
+        .hero-card {
+          border-radius: 18px;
+          padding: 0.9rem;
+        }
+        main {
+          padding: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a href="#" class="logo">
+          <img
+            src="img/philomusic_logo.jpg"
+            alt="Philomusic And Art Centre"
+            width="200"
+            height="200"
+          />
+          <span class="logo-text">Philomusic<small>And Art Centre</small></span>
+        </a>
+        <a
+          href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I'd%20like%20to%20book%20a%20free%20trial%20assessment."
+          class="chip-btn"
+          >💬 WhatsApp</a
+        >
+      </header>
+
+      <main>
+        <section class="hero-card">
+          <div class="hero-copy">
+            <div class="eyebrow">● Since 2017 • Trusted by parents</div>
+            <h1>
+              Help your child find
+              <span class="accent">confidence</span> through music and art.
+            </h1>
+            <p class="lead">
+              A calm, inspiring studio in Pandan Indah where children learn
+              piano, violin, cello, guitar and art with structured guidance,
+              stage exposure and a free trial assessment.
+            </p>
+
+            <ul class="feature-list">
+              <li>Personalised lessons for each child</li>
+              <li>100% ABRSM exam pass rate</li>
+              <li>Free 20-minute assessment for new students</li>
+            </ul>
+
+            <div class="stats-row">
+              <div class="stat-pill">500+ students nurtured</div>
+              <div class="stat-pill">4.7★ parent rating</div>
+              <div class="stat-pill">Pandan Indah, KL</div>
+            </div>
+
+            <div class="cta-row">
+              <a
+                href="https://wa.me/60123211265?text=Hi%20Philomusic!%20I'd%20like%20to%20book%20a%20free%20trial%20assessment%20for%20my%20child."
+                class="btn-primary"
+                >✦ Book Free Trial</a
+              >
+              <a href="tel:+60123211265" class="btn-secondary">📞 Call Us</a>
+            </div>
+          </div>
+
+          <div class="social-proof">
+            <div class="mini-cta">⚡ Fast reply on WhatsApp</div>
+            <div class="quote-mark">“</div>
+            <p class="quote">
+              My daughter became more confident, expressive, and excited to
+              perform after just a few lessons. The teachers truly care.
+            </p>
+            <div class="person">
+              Sarah L.<span>Parent of a young pianist</span>
+            </div>
+            <div class="quote-mark" style="align-self: flex-end">”</div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        Pandan Indah, Kuala Lumpur • Wed–Sun by appointment • +60123211265
+      </footer>
+    </div>
+  </body>
+</html>

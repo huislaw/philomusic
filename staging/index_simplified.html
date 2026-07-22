@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philomusic | Simplified Landing Page Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♪</text></svg>"
+    />
+    <style>
+      :root {
+        --bg-base: #080808;
+        --bg-card: rgba(255, 255, 255, 0.03);
+        --gold: #c9a96e;
+        --gold-light: #e8c98a;
+        --gold-border: rgba(201, 169, 110, 0.2);
+        --text-main: #f4efe8;
+        --text-muted: #b7b0a3;
+        --font-heading: "Cinzel", serif;
+        --font-body: "Montserrat", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(201, 169, 110, 0.12),
+            transparent 40%
+          ),
+          #0a0a0a;
+        color: var(--text-main);
+        font-family: var(--font-body);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.5rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .logo img {
+        height: 48px;
+        width: auto;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .logo-text {
+        font-family: var(--font-heading);
+        color: var(--gold-light);
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .logo-text small {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: var(--text-muted);
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        width: 100%;
+        margin-bottom: 4rem;
+      }
+
+      .preview-card {
+        background: var(--bg-card);
+        border: 1px solid var(--gold-border);
+        border-radius: 16px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .preview-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+        box-shadow: 0 12px 30px rgba(201, 169, 110, 0.1);
+      }
+
+      .preview-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .preview-card:hover::before {
+        opacity: 1;
+      }
+
+      .tag {
+        display: inline-block;
+        align-self: flex-start;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--gold-light);
+        background: rgba(201, 169, 110, 0.1);
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        border: 1px solid rgba(201, 169, 110, 0.15);
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+      }
+
+      .preview-card h2 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        color: #fff;
+        margin-bottom: 0.75rem;
+      }
+
+      .preview-card p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .go-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gold-light);
+        font-size: 0.88rem;
+        font-weight: 700;
+        transition: gap 0.2s ease;
+      }
+
+      .preview-card:hover .go-link {
+        gap: 0.8rem;
+      }
+
+      footer {
+        margin-top: auto;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 2rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="img/philomusic_logo.jpg"
+          alt="Philomusic And Art Centre Logo"
+        />
+        <div class="logo-text">Philomusic<small>And Art Centre</small></div>
+      </div>
+      <h1>Simplified Landing Pages</h1>
+      <p class="subtitle">
+        High-converting, zero-scroll designs crafted to direct parent and
+        student enquiries straight to WhatsApp.
+      </p>
+    </header>
+
+    <main class="grid">
+      <a href="simple_premium_luxury.html" class="preview-card">
+        <span class="tag">Design 1</span>
+        <h2>Premium Luxury</h2>
+        <p>
+          An elegant, high-contrast gold and dark layout emphasizing studio
+          prestige, perfect for parents seeking refined quality.
+        </p>
+        <span class="go-link">Preview Design ➔</span>
+      </a>
+
+      <a href="simple_playful_kid_friendly.html" class="preview-card">
+        <span class="tag">Design 2</span>
+        <h2>Playful & Kid-Friendly</h2>
+        <p>
+          A bright, cheerful design with soft colors and clean typography
+          tailored to capture the warmth and joy of teaching children.
+        </p>
+        <span class="go-link">Preview Design ➔</span>
+      </a>
+
+      <a href="simple_bold_sales_focused.html" class="preview-card">
+        <span class="tag">Design 3</span>
+        <h2>Bold & Sales-Focused</h2>
+        <p>
+          A high-contrast layout focusing on strong, direct benefits, clean
+          outlines, and instant calls to action for immediate trial booking.
+        </p>
+        <span class="go-link">Preview Design ➔</span>
+      </a>
+
+      <a href="simple_instagram_modern.html" class="preview-card">
+        <span class="tag">Design 4</span>
+        <h2>Instagram Modern</h2>
+        <p>
+          A clean, sleek modern grid aesthetic with dynamic styling suited
+          perfectly to appeal to social media audiences.
+        </p>
+        <span class="go-link">Preview Design ➔</span>
+      </a>
+
+      <a
+        href="simplified_watsapp_focused.html"
+        class="preview-card"
+        style="
+          grid-column: 1 / -1;
+          max-width: 500px;
+          margin: 0 auto;
+          width: 100%;
+        "
+      >
+        <span class="tag">Classic</span>
+        <h2>Direct Minimal</h2>
+        <p>
+          The original ultra-clean structured layout focusing purely on
+          quick-loading essentials.
+        </p>
+        <span class="go-link">Preview Design ➔</span>
+      </a>
+    </main>
+
+    <footer>&copy; 2026 Philomusic And Art Centre. All Rights Reserved.</footer>
+  </body>
+</html>
